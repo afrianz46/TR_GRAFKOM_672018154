@@ -16,10 +16,9 @@ bool mouseDown = false;
 
 void CodinganRumah() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glRotatef(xrot, 1.0f, 0.0f, 0.0f);
+	glRotatef(xrot, 1.0f, 0.0f, 0.0f);
 	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
+	glLineWidth(2);
 	glPushMatrix();
 
 	
@@ -27,25 +26,25 @@ void CodinganRumah() {
    
    //
    glBegin(GL_QUADS);// DEPAN KIRI
-	glColor3ub(128,0,0);
+	glColor3f(1,0,0);
 	glVertex3f( -20.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f, 8.0f, 1.0f);
     glVertex3f( -20.0f, 8.0f, 1.0f);
 	
-	glColor3ub(128,0,0);// BELAKANG
+	glColor3f(1,0,0);// BELAKANG
 	glVertex3f( -25.0f,  3.0f, -10.0f);
     glVertex3f( -3.0f,  3.0f, -10.0f);
     glVertex3f( -3.0f, 8.0f, -10.0f);
     glVertex3f( -25.0f, 8.0f, -10.0f);
 
-	glColor3ub(128,0,0);// ATAS
+	glColor3f(1,0,0);// ATAS
 	glVertex3f( -20.0f,  8.0f, 1.0f);
     glVertex3f( -3.0f,  8.0f, 1.0f);
     glVertex3f( -3.0f, 8.0f, -10.0f);
     glVertex3f( -20.0f, 8.0f, -10.0f);
 
-	glColor3ub(128,0,0);// BAWAH
+	glColor3f(1,1,1);// BAWAH
 	glVertex3f( -20.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f, 3.0f, -10.0f);
@@ -53,35 +52,35 @@ void CodinganRumah() {
 
 	glColor3f(0,0,0);// KANAN
 	glVertex3f( -3.0f,  3.0f, 1.0f);
-    glVertex3f( -3.0f,  8.0f, 1.0f);
-    glVertex3f( -3.0f, 8.0f, -10.0f);
+    glVertex3f( -3.0f,  4.0f, 1.0f);
+    glVertex3f( -3.0f, 4.0f, -10.0f);
     glVertex3f( -3.0f, 3.0f, -10.0f);
 	
-	glColor3ub(0,0,0);// KIRI
+	glColor3f(0,0,0);// KIRI
 	glVertex3f( -25.0f,  3.0f, -2.0f);
     glVertex3f( -25.0f,  8.0f, -2.0f);
     glVertex3f( -25.0f, 8.0f, -10.0f);
     glVertex3f( -25.0f, 3.0f, -10.0f);
 	
-	glColor3f(1,0,0);// KIRI DEPAN
+	glColor3f(1,0,1);// KIRI DEPAN
 	glVertex3f( -20.0f, 8.0f, 1.0f);
 	glVertex3f( -20.0f, 8.0f, -2.0f);
 	glVertex3f( -20.0f, 3.0f, -2.0f);
 	glVertex3f( -20.0f, 3.0f, 1.0f);
 
-	glColor3f(0,0,0);// KIRI DEPAN
+	glColor3f(1,0,1);// KIRI DEPAN
 	glVertex3f( -25.0f, 8.0f, -2.0f);
 	glVertex3f( -25.0f, 3.0f, -2.0f);
 	glVertex3f( -20.0f, 3.0f, -2.0f);
 	glVertex3f( -20.0f, 8.0f, -2.0f);
 
-	glColor3f(1,0,1);// ATAS DEPAN
+	glColor3f(1,0,0);// ATAS DEPAN
 	glVertex3f( -25.0f, 8.0f, -2.0f);
 	glVertex3f( -25.0f, 8.0f, -10.0f);
 	glVertex3f( -20.0f, 8.0f, -10.0f);
 	glVertex3f( -20.0f, 8.0f, -2.0f);
 
-	glColor3f(1,0,1);// BAWAH
+	glColor3f(1,1,1);// BAWAH
 	glVertex3f( -25.0f, 3.0f, -2.0f);
 	glVertex3f( -25.0f, 3.0f, -10.0f);
 	glVertex3f( -20.0f, 3.0f, -10.0f);
@@ -92,31 +91,31 @@ void CodinganRumah() {
 	///////////////////////////////////////////////////   GEDUNG KANAN    /////////////////////////////////////////////////////////////////////////////////////////////////////
    //
    glBegin(GL_QUADS);// DEPAN 
-	glColor3ub(128,0,0);
+	glColor3f(1,0,0);
 	glVertex3f(  3.0f,  3.0f, 1.0f);
     glVertex3f(  20.0f,  3.0f, 1.0f);
     glVertex3f(  20.0f, 8.0f, 1.0f);
     glVertex3f(  3.0f, 8.0f, 1.0f);
 	
-	glColor3ub(128,0,0);// BELAKANG
+	glColor3f(1,0,0);// BELAKANG
 	glVertex3f( 3.0f,  3.0f, -10.0f);
     glVertex3f( 20.0f,  3.0f, -10.0f);
     glVertex3f( 20.0f, 8.0f, -10.0f);
     glVertex3f( 3.0f, 8.0f, -10.0f);
 
-	glColor3ub(128,0,0);// ATAS
+	glColor3f(1,0,0);// ATAS
 	glVertex3f( 3.0f,  8.0f, 1.0f);
     glVertex3f( 20.0f,  8.0f, 1.0f);
     glVertex3f( 20.0f, 8.0f, -10.0f);
     glVertex3f( 3.0f, 8.0f, -10.0f);
 
-	glColor3ub(128,0,0);// BAWAH
+	glColor3f(1,1,1);// BAWAH
 	glVertex3f(  3.0f,  3.0f, 1.0f);
     glVertex3f(  20.0f,  3.0f, 1.0f);
     glVertex3f(  20.0f, 3.0f, -10.0f);
     glVertex3f(  3.0f, 3.0f, -10.0f);
 
-	glColor3f(1,1,1);// KANAN
+	glColor3f(0,0,0);// KANAN
 	glVertex3f( 20.0f,  3.0f, 1.0f);
     glVertex3f( 20.0f,  8.0f, 1.0f);
     glVertex3f( 20.0f, 8.0f, -10.0f);
@@ -124,8 +123,8 @@ void CodinganRumah() {
 	
 	glColor3f(0,0,0);// KIRI
 	glVertex3f( 3.0f,  3.0f, 1.0f);
-    glVertex3f( 3.0f,  8.0f, 1.0f);
-    glVertex3f( 3.0f, 8.0f, -10.0f);
+    glVertex3f( 3.0f,  4.0f, 1.0f);
+    glVertex3f( 3.0f, 4.0f, -10.0f);
     glVertex3f( 3.0f, 3.0f, -10.0f);
 	glEnd();
 
@@ -155,8 +154,258 @@ void CodinganRumah() {
     glVertex3f(   3.0f,  4.0f, 1.0f);
     glVertex3f(   3.0f, 4.0f, -10.0f);
     glVertex3f(  -3.0f, 4.0f, -10.0f);
+	glEnd();
+
+	////////////////////////////////////////////////////////////////////    Pintu Mall DEPAN      ////////////////////////////////////////////////////
+	glBegin(GL_POLYGON);
+
+	glColor3f(1,1,1);// KIRI
+	glVertex3f( -3.5f,  3.0f, 1.0f);
+    glVertex3f( -3.5f,  3.8f, 1.0f);
+    glVertex3f( -19.5f, 3.8f, 1.0f);
+    glVertex3f( -19.5f, 3.0f, 1.0f);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+	glColor3f(1,1,1);// KANAN
+	glVertex3f( 3.5f,  3.0f, 1.0f);
+    glVertex3f( 3.5f,  3.8f, 1.0f);
+    glVertex3f( 19.5f, 3.8f, 1.0f);
+    glVertex3f( 19.5f, 3.0f, 1.0f);
+	
+	glEnd();
+
+	/////////////////////////////////// sekat pintu  //////////////////////
+	glBegin(GL_LINE_LOOP);//kiri
+	glColor3f(0,0,0);
+	glVertex3f( -3.5f,  3.0f, 1.0f);
+    glVertex3f( -3.5f,  3.8f, 1.0f);
+    glVertex3f( -19.5f, 3.8f, 1.0f);
+    glVertex3f( -19.5f, 3.0f, 1.0f);
+	glEnd();
+	
+
+   glBegin(GL_LINE_LOOP);
+	glColor3f(0,0,0);     // KANAN
+	glVertex3f( 3.5f,  3.0f, 1.0f);
+    glVertex3f( 3.5f,  3.8f, 1.0f);
+    glVertex3f( 19.5f, 3.8f, 1.0f);
+    glVertex3f( 19.5f, 3.0f, 1.0f);
+	   glEnd();
+
+	   glBegin(GL_LINES);//Garis di pintu kiri
+	glColor3f(0,0,0);
+	glVertex3f( -11.5f,  3.0f, 1.0f);
+    glVertex3f( -11.5f,  3.8f, 1.0f);
+   
+	glVertex3f( 11.5f,  3.0f, 1.0f);//Garis di pintu kanan
+    glVertex3f( 11.5f,  3.8f, 1.0f);
+   
+	glEnd();
+
+
+		////////////////////////////////////////////////////////////////////    Pintu Mall BELAKANG     ////////////////////////////////////////////////////
+	glBegin(GL_POLYGON);
+
+	glColor3f(1,1,1);// KIRI
+	glVertex3f( -3.5f,  3.0f, -10.0f);
+    glVertex3f( -3.5f,  3.8f, -10.0f);
+    glVertex3f( -24.5f, 3.8f, -10.0f);
+    glVertex3f( -24.5f, 3.0f, -10.0f);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+	glColor3f(1,1,1);// KANAN
+	glVertex3f( 3.5f,  3.0f, -10.0f);
+    glVertex3f( 3.5f,  3.8f, -10.0f);
+    glVertex3f( 19.5f, 3.8f, -10.0f);
+    glVertex3f( 19.5f, 3.0f, -10.0f);
+	
+	glEnd();
+
+	/////////////////////////////////// sekat pintu  //////////////////////
+	glBegin(GL_LINE_LOOP);//kiri
+	glColor3f(0,0,0);
+	glVertex3f( -3.5f,  3.0f, -10.0f);
+    glVertex3f( -3.5f,  3.8f, -10.0f);
+    glVertex3f( -24.5f, 3.8f, -10.0f);
+    glVertex3f( -24.5f, 3.0f, -10.0f);
+	glEnd();
+	
+
+   glBegin(GL_LINE_LOOP);
+	glColor3f(0,0,0);     // KANAN
+	glVertex3f( 3.5f,  3.0f, -10.0f);
+    glVertex3f( 3.5f,  3.8f, -10.0f);
+    glVertex3f( 19.5f, 3.8f, -10.0f);
+    glVertex3f( 19.5f, 3.0f, -10.0f);
+	   glEnd();
+
+	   glBegin(GL_LINES);//Garis di pintu kiri
+	glColor3f(0,0,0);
+	glVertex3f( -13.5f,  3.0f, -10.0f);
+    glVertex3f( -13.5f,  3.8f, -10.0f);
+    
+	glVertex3f( -18.5f,  3.0f, -10.0f);
+    glVertex3f( -18.5f,  3.8f, -10.0f);
+     
+	glVertex3f( -8.5f,  3.0f, -10.0f);
+    glVertex3f( -8.5f,  3.8f, -10.0f);
+   
+	glVertex3f( 11.5f,  3.0f, -10.0f);//Garis di pintu kanan
+    glVertex3f( 11.5f,  3.8f, -10.0f);
+   
+	glEnd();
+
+	/////////////////////////////////// Objek iklan Belakang Mall  ////////////////////
+	glBegin(GL_QUADS);// BELAKANG KIRI
+	glColor3f(0,0,1);
+	glVertex3f(  -4.5f,  4.0f, -10.5f);
+    glVertex3f(  -7.5f,  4.0f, -10.5f);
+    glVertex3f(  -7.5f, 8.3f, -10.5f);
+    glVertex3f(  -4.5f, 8.3f, -10.5f);
+	
+	glColor3f(0,0,1);// BELAKANG "TENGAH" KIRI
+	glVertex3f(  -9.0f,  4.5f, -10.5f);
+    glVertex3f(  -15.5f,  4.5f, -10.5f);
+    glVertex3f(  -15.5f, 7.5f, -10.5f);
+    glVertex3f(  -9.0f, 7.5f, -10.5f);
+	
+	glColor3f(0,0,1);// BELAKANG "PALING" KIRI
+	glVertex3f(  -17.0f,  4.0f, -10.5f);
+    glVertex3f(  -23.0f,  4.0f, -10.5f);
+    glVertex3f(  -23.0f, 8.0f, -10.5f);
+    glVertex3f(  -17.0f, 8.0f, -10.5f);
+	
+
+	glColor3f(0,0,1);// BELAKANG KANAN
+	glVertex3f(  4.5f,  4.0f, -10.5f);
+    glVertex3f(  7.5f,  4.0f, -10.5f);
+    glVertex3f(  7.5f, 8.3f, -10.5f);
+    glVertex3f(  4.5f, 8.3f, -10.5f);
+
+	glColor3f(0,0,1);// BELAKANG "TENGAH" KANAN
+	glVertex3f(  9.5f,  5.0f, -10.5f);
+    glVertex3f(  15.5f,  5.0f, -10.5f);
+    glVertex3f(  15.5f, 7.0f, -10.5f);
+    glVertex3f(  9.5f, 7.0f, -10.5f);
+	
+	glEnd();
+
+	glBegin(GL_POLYGON); //////  GEDUNG KIRI 1  /////
+	glColor3f(1,1,1);// KIRI
+	glVertex3f( -4.5f,  4.0f, -10.5f);
+    glVertex3f( -4.5f,  8.3f, -10.5f);
+    glVertex3f( -4.5f, 8.3f, -9.8f);
+    glVertex3f( -4.5f, 8.0f, -9.8f);
+	glVertex3f( -4.5f, 8.0f, -10.0f);
+	glVertex3f( -4.5f, 4.0f, -10.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1,1,1);// KANAN
+	glVertex3f( -7.5f,  4.0f, -10.5f);
+    glVertex3f( -7.5f,  8.3f, -10.5f);
+    glVertex3f( -7.5f, 8.3f, -9.8f);
+    glVertex3f( -7.5f, 8.0f, -9.8f);
+	glVertex3f( -7.5f, 8.0f, -10.0f);
+	glVertex3f( -7.5f, 4.0f, -10.0f);
 
 	glEnd();
+
+	glBegin(GL_QUADS); //////  GEDUNG KIRI 2 "TENGAH KIRI"  /////
+	glColor3f(1,1,1);
+	glVertex3f( -9.0f,  4.5f, -10.5f);// BAWAH
+    glVertex3f( -15.5f,  4.5f, -10.5f);
+	glVertex3f( -15.5f, 4.5f, -10.0f);
+	glVertex3f( -9.0f, 4.5f, -10.0f);
+
+	glVertex3f( -9.0f,  4.5f, -10.5f);// KANAN
+    glVertex3f( -9.0f,  7.5f, -10.5f);
+	glVertex3f( -9.0f, 7.5f, -10.0f);
+	glVertex3f( -9.0f, 4.5f, -10.0f);
+	
+	glVertex3f( -9.0f,  7.5f, -10.5f);// ATAS
+    glVertex3f( -15.5f,  7.5f, -10.5f);
+	glVertex3f( -15.5f, 7.5f, -10.0f);
+	glVertex3f( -9.0f, 7.5f, -10.0f);
+
+	glVertex3f( -15.5f,  4.5f, -10.5f);// KANAN
+    glVertex3f( -15.5f,  7.5f, -10.5f);
+	glVertex3f( -15.5f, 7.5f, -10.0f);
+	glVertex3f( -15.5f, 4.5f, -10.0f);
+
+	glEnd();
+
+		glBegin(GL_QUADS); //////  GEDUNG KIRI 2 "PALING KIRI"  /////
+	glColor3f(1,1,1);
+	glVertex3f( -17.0f,  4.0f, -10.5f);// BAWAH
+    glVertex3f( -23.5f,  4.0f, -10.5f);
+	glVertex3f( -23.5f, 4.0f, -10.0f);
+	glVertex3f( -17.0f, 4.0f, -10.0f);
+
+	glVertex3f( -17.0f,  4.5f, -10.5f);// KANAN
+    glVertex3f( -17.0f,  8.0f, -10.5f);
+	glVertex3f( -17.0f, 8.0f, -10.0f);
+	glVertex3f( -17.0f, 4.5f, -10.0f);
+	
+	glVertex3f( -17.0f,  8.0f, -10.5f);// ATAS
+    glVertex3f( -23.5f,  8.0f, -10.5f);
+	glVertex3f( -23.5f, 8.0f, -10.0f);
+	glVertex3f( -17.0f, 8.0f, -10.0f);
+
+	glVertex3f( -23.5f,  4.5f, -10.5f);// KANAN
+    glVertex3f( -23.5f,  8.0f, -10.5f);
+	glVertex3f( -23.5f, 8.0f, -10.0f);
+	glVertex3f( -23.5f, 4.5f, -10.0f);
+
+	glEnd();
+
+	glBegin(GL_POLYGON); //////  GEDUNG KANAN 1  /////
+	glColor3f(1,1,1);// KIRI
+	glVertex3f( 4.5f,  4.0f, -10.5f);
+    glVertex3f( 4.5f,  8.3f, -10.5f);
+    glVertex3f( 4.5f, 8.3f, -9.8f);
+    glVertex3f( 4.5f, 8.0f, -9.8f);
+	glVertex3f( 4.5f, 8.0f, -10.0f);
+	glVertex3f( 4.5f, 4.0f, -10.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1,1,1);// KANAN
+	glVertex3f( 7.5f,  4.0f, -10.5f);
+    glVertex3f( 7.5f,  8.3f, -10.5f);
+    glVertex3f( 7.5f, 8.3f, -9.8f);
+    glVertex3f( 7.5f, 8.0f, -9.8f);
+	glVertex3f( 7.5f, 8.0f, -10.0f);
+	glVertex3f( 7.5f, 4.0f, -10.0f);
+
+	glEnd();
+
+	glBegin(GL_QUADS); //////  OBJEK IKLAN GEDUNG KANAN 2  /////
+	
+	glColor3f(1,1,1);// DEPAN "TENGAH" KANAN
+	glVertex3f(  9.5f,  5.0f, -10.5f);//BAWAH 
+    glVertex3f(  15.5f,  5.0f, -10.5f);
+	glVertex3f(  15.5f,  5.0f, -10.0f);
+	glVertex3f(  9.5f,  5.0f, -10.0f);
+
+	glVertex3f(  15.5f,  5.0f, -10.5f);// KANAN
+    glVertex3f(  15.5f,  7.0f, -10.5f);
+	glVertex3f(  15.5f,  7.0f, -10.0f);
+	glVertex3f(  15.5f,  5.0f, -10.0f);
+
+	glVertex3f(  9.5f,  7.0f, -10.5f);//ATAS
+    glVertex3f(  15.5f,  7.0f, -10.5f);
+	glVertex3f(  15.5f,  7.0f, -10.0f);
+	glVertex3f(  9.5f,  7.0f, -10.0f);
+
+	glVertex3f(  9.5f,  5.0f, -10.5f);//KIRI 
+    glVertex3f(  9.5f,  7.0f, -10.5f);
+	glVertex3f(  9.5f,  7.0f, -10.0f);
+	glVertex3f(  9.5f,  5.0f, -10.0f);
+	glEnd();
+
 	glPopMatrix();
 	glutSwapBuffers();
 }
