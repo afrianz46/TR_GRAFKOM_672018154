@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
                                 
-                             // Tekan tombol "W" 8x untuk melihat HASIL RUMAH FULL.......!!! 
+                             // Tekan tombol "W" 8x untuk melihat HASIL FULL.......!!! 
 
 float xrot = 0.0f;
 float yrot = 0.0f;
@@ -14,18 +14,93 @@ int is_depth;
 
 bool mouseDown = false;
 
-void CodinganRumah() {
+void awan(void){
+ glPushMatrix();
+ glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+ glColor3ub(153, 223, 255);
+ glutSolidSphere(10, 50, 50);
+ glPopMatrix();
+ glPushMatrix();
+ glTranslatef(10,0,1);
+ glutSolidSphere(5, 50, 50);
+ glPopMatrix();
+ glPushMatrix();
+ glTranslatef(-2,6,-2);
+ glutSolidSphere(7, 50, 50);
+ glPopMatrix();
+ glPushMatrix();
+ glTranslatef(-10,-3,0);
+ glutSolidSphere(7, 50, 50);
+ glPopMatrix();
+ glPushMatrix();
+ glTranslatef(6,-2,2);
+ glutSolidSphere(7, 50, 50);
+ glPopMatrix();
+ }
+
+
+
+void tabung(float radatas,float radbawah,float tinggi, float x, float y,float z, int mulai ,int stop){
+	float theta,theti;
+	int i,j;
+
+	glPushMatrix();//bawah
+	glPushMatrix();
+	glBegin(GL_POLYGON);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	for(i=mulai;i<stop;i++){
+		theta = i*3.14/180;
+		glVertex3f(x+radbawah*cos(theta),y,z+radbawah*sin(theta));
+	};
+	glEnd();
+	//selimut
+	glBegin(GL_POLYGON);
+	glColor4f(1.0f, 1.0f, 0.5f, 0.5f);
+	for(i=mulai;i<stop;i++){
+		theta = i*3.14/180;
+		if(i==359){
+			j=0;
+		}else{
+			j=i+1;
+		};
+		theti = j*3.14/180;
+		glVertex3f(x+radatas*cos(theta),y+tinggi,z+radatas*sin(theta));
+		glVertex3f(x+radatas*cos(theti),y+tinggi,z+radatas*sin(theti));
+		glVertex3f(x+radbawah*cos(theti),y,z+radbawah*sin(theti));
+		glVertex3f(x+radbawah*cos(theta),y,z+radbawah*sin(theta));
+	};
+	glEnd();
+	//atas
+	glBegin(GL_POLYGON);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	for(i=mulai;i<stop;i++){
+		theta = i*3.14/180;
+		glVertex3f(x+radatas*cos(theta),y+tinggi,z+radatas*sin(theta));
+	};
+	glEnd();
+	glPopMatrix();
+	glPopMatrix();
+};
+void codinganmall() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glRotatef(xrot, 1.0f, 0.0f, 0.0f);
 	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 	glLineWidth(2);
 	glPushMatrix();
-
+	//
+	tabung(7.0f, 7.0f, 4.5f, 12.0f, 3.0f, 1.0f, 0, 180);
 	
-/////////////////////////////////////////////////////////////////////   GEDUNG KIRI   ////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////   DASAR    TANAH     /////////////////////////////////////////
+	glBegin(GL_QUADS);
+	glColor3f(1, 0.2, 0.2);
+	glVertex3f( -25.0f,  2.98f, -20.0f);
+    glVertex3f(  20.0f,  2.98f, -20.0f);
+    glVertex3f(  20.0f, 2.98f, 20.0f);
+    glVertex3f( -25.0f, 2.98f, 20.0f);
+
+   /////////////////////////////////////////////////////////////////////   GEDUNG KIRI   //////////////////////////////////////////////////////////
    
-   //
-   glBegin(GL_QUADS);// DEPAN KIRI
+	glBegin(GL_QUADS);// DEPAN KIRI
 	glColor3f(1,0,0);
 	glVertex3f( -20.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f,  3.0f, 1.0f);
@@ -46,16 +121,10 @@ void CodinganRumah() {
 
 	glColor3f(1,1,1);// BAWAH
 	glVertex3f( -20.0f,  3.0f, 1.0f);
-    glVertex3f(  -3.0f,  3.0f, 1.0f);
+    glVertex3f( -3.0f,  3.0f, 1.0f);
     glVertex3f(  -3.0f, 3.0f, -10.0f);
     glVertex3f( -20.0f, 3.0f, -10.0f);
 
-	glColor3f(0,0,0);// KANAN
-	glVertex3f( -3.0f,  3.0f, 1.0f);
-    glVertex3f( -3.0f,  4.0f, 1.0f);
-    glVertex3f( -3.0f, 4.0f, -10.0f);
-    glVertex3f( -3.0f, 3.0f, -10.0f);
-	
 	glColor3f(0,0,0);// KIRI
 	glVertex3f( -25.0f,  3.0f, -2.0f);
     glVertex3f( -25.0f,  8.0f, -2.0f);
@@ -121,12 +190,6 @@ void CodinganRumah() {
     glVertex3f( 20.0f, 8.0f, -10.0f);
     glVertex3f( 20.0f, 3.0f, -10.0f);
 	
-	glColor3f(0,0,0);// KIRI
-	glVertex3f( 3.0f,  3.0f, 1.0f);
-    glVertex3f( 3.0f,  4.0f, 1.0f);
-    glVertex3f( 3.0f, 4.0f, -10.0f);
-    glVertex3f( 3.0f, 3.0f, -10.0f);
-	glEnd();
 
 	////////////////////////////////////////////////////////////////////    GEDUNG TENGAH       ////////////////////////////////////////////////////
 	
@@ -134,20 +197,20 @@ void CodinganRumah() {
 	glColor3f(1,0,1);
 	glVertex3f(  -3.0f,  4.0f, 1.0f);
     glVertex3f(   3.0f,  4.0f, 1.0f);
-    glVertex3f(   3.0f, 8.0f, 1.0f);
-    glVertex3f(  -3.0f, 8.0f, 1.0f);
+    glVertex3f(   3.0f, 7.5f, 1.0f);
+    glVertex3f(  -3.0f, 7.5f, 1.0f);
 	
 	glColor3f(1,0,1);// BELAKANG
 	glVertex3f( -3.0f,  4.0f, -10.0f);
     glVertex3f(  3.0f,  4.0f, -10.0f);
-    glVertex3f(  3.0f, 8.0f, -10.0f);
-    glVertex3f( -3.0f, 8.0f, -10.0f);
+    glVertex3f(  3.0f, 7.5f, -10.0f);
+    glVertex3f( -3.0f, 7.5f, -10.0f);
 
 	glColor3f(1,0,1);// ATAS
-	glVertex3f( -3.0f,  8.0f, 1.0f);
-    glVertex3f(  3.0f,  8.0f, 1.0f);
-    glVertex3f(  3.0f, 8.0f, -10.0f);
-    glVertex3f( -3.0f, 8.0f, -10.0f);
+	glVertex3f( -3.0f,  7.5f, 1.0f);
+    glVertex3f(  3.0f,  7.5f, 1.0f);
+    glVertex3f(  3.0f, 7.5f, -10.0f);
+    glVertex3f( -3.0f, 7.5f, -10.0f);
 
 	glColor3f(1,0,1);// BAWAH
 	glVertex3f(  -3.0f,  4.0f, 1.0f);
@@ -156,6 +219,111 @@ void CodinganRumah() {
     glVertex3f(  -3.0f, 4.0f, -10.0f);
 	glEnd();
 
+	glBegin(GL_QUADS);
+	glColor3f(0,1,0);// KIRI BAWAH "DEKAT JALAN"
+	glVertex3f( -3.0f,  3.0f, 1.0f);
+    glVertex3f( -3.0f,  4.0f, 1.0f);
+    glVertex3f( -3.0f, 4.0f, -10.0f);
+    glVertex3f( -3.0f, 3.0f, -10.0f);
+	
+	glColor3f(0,1,0);// KIRI ATAS
+	glVertex3f( -3.0f,  7.5f, 1.0f);
+    glVertex3f( -3.0f,  8.0f, 1.0f);
+    glVertex3f( -3.0f, 8.0f, -10.0f);
+    glVertex3f( -3.0f, 7.5f, -10.0f);
+
+	glColor3f(0,1,0);// KANAN BAWAH "DEKAT JALAN"
+	glVertex3f( 3.0f,  3.0f, 1.0f);
+    glVertex3f( 3.0f,  4.0f, 1.0f);
+    glVertex3f( 3.0f, 4.0f, -10.0f);
+    glVertex3f( 3.0f, 3.0f, -10.0f);
+
+	glColor3f(0,1,0);// KANAN ATAS
+	glVertex3f( 3.0f,  7.5f, 1.0f);
+    glVertex3f( 3.0f,  8.0f, 1.0f);
+    glVertex3f( 3.0f, 8.0f, -10.0f);
+    glVertex3f( 3.0f, 7.5f, -10.0f);
+	
+	glBegin(GL_QUADS);
+	glColor3f(0,0,0);
+	glVertex3f(  -3.0f,  3.0f, 10.0f);
+    glVertex3f(   3.0f,  3.0f, 10.0f);
+    glVertex3f(   3.0f, 3.0f, -20.0f);
+    glVertex3f(  -3.0f, 3.0f, -20.0f);
+
+	glBegin(GL_QUADS);
+	glColor3f(0,0,0);
+	glVertex3f(  -25.0f,  3.0f, 15.0f);
+    glVertex3f(   20.0f,  3.0f, 15.0f);
+    glVertex3f(   20.0f, 3.0f, 10.0f);
+    glVertex3f(  -25.0f, 3.0f, 10.0f);
+
+	
+	glEnd();
+
+
+	////////////////////////////////////////////////////////////////  Lantai Satu  ////////////////////////////////////////////////
+	glBegin(GL_QUADS);
+	glColor3f(0,1,1);
+	glVertex3f( 20.0f,  4.3f, -10.0f);
+    glVertex3f( 20.0f,  4.3f, 1.0f);
+	glVertex3f( 3.0f,  4.3f, 1.0f);
+    glVertex3f( 3.0f,  4.3f, -10.0f);
+
+	glVertex3f( -3.0f,  4.3f, -10.0f);
+    glVertex3f( -3.0f,  4.3f, 1.0f);
+    glVertex3f( -20.0f, 4.3f, 1.0f);
+    glVertex3f( -20.0f, 4.3f, -10.0f);
+
+	glColor3f(0,0,1);
+	glVertex3f( -20.0f,  4.3f, -10.0f);
+    glVertex3f( -20.0f,  4.3f, 1.0f);
+    glVertex3f( -20.0f, 4.55f, 1.0f);
+    glVertex3f( -20.0f, 4.55f, -10.0f);
+
+	glEnd();
+
+	////////////////////////////////////////////////////////////////  Lantai Dua  ////////////////////////////////////////////////
+	glBegin(GL_QUADS);
+	glColor3f(0,1,1);
+	glVertex3f( 20.0f,  5.3f, -10.0f);
+    glVertex3f( 20.0f,  5.3f, 1.0f);
+	glVertex3f( 3.0f,  5.3f, 1.0f);
+    glVertex3f( 3.0f,  5.3f, -10.0f);
+
+	glVertex3f( -3.0f,  5.3f, -10.0f);
+    glVertex3f( -3.0f,  5.3f, 1.0f);
+    glVertex3f( -20.0f, 5.3f, 1.0f);
+    glVertex3f( -20.0f, 5.3f, -10.0f);
+
+	glColor3f(0,0,1);
+	glVertex3f( -20.0f,  5.3f, -10.0f);
+    glVertex3f( -20.0f,  5.3f, 1.0f);
+    glVertex3f( -20.0f, 5.55f, 1.0f);
+    glVertex3f( -20.0f, 5.55f, -10.0f);
+
+	glEnd();
+
+	////////////////////////////////////////////////////////////////  Lantai Tiga  ////////////////////////////////////////////////
+	glBegin(GL_QUADS);
+	glColor3f(0,1,1);
+	glVertex3f( 20.0f,  6.3f, -10.0f);
+    glVertex3f( 20.0f,  6.3f, 1.0f);
+	glVertex3f( 3.0f,  6.3f, 1.0f);
+    glVertex3f( 3.0f,  6.3f, -10.0f);
+
+	glVertex3f( -3.0f,  6.3f, -10.0f);
+    glVertex3f( -3.0f,  6.3f, 1.0f);
+    glVertex3f( -20.0f, 6.3f, 1.0f);
+    glVertex3f( -20.0f, 6.3f, -10.0f);
+
+	glColor3f(0,0,1);
+	glVertex3f( -20.0f,  6.3f, -10.0f);
+    glVertex3f( -20.0f,  6.3f, 1.0f);
+    glVertex3f( -20.0f, 6.55f, 1.0f);
+    glVertex3f( -20.0f, 6.55f, -10.0f);
+
+	glEnd();
 	////////////////////////////////////////////////////////////////////    Pintu Mall DEPAN      ////////////////////////////////////////////////////
 	glBegin(GL_POLYGON);
 
@@ -185,7 +353,7 @@ void CodinganRumah() {
 	glEnd();
 	
 
-   glBegin(GL_LINE_LOOP);
+    glBegin(GL_LINE_LOOP);
 	glColor3f(0,0,0);     // KANAN
 	glVertex3f( 3.5f,  3.0f, 1.0f);
     glVertex3f( 3.5f,  3.8f, 1.0f);
@@ -193,7 +361,7 @@ void CodinganRumah() {
     glVertex3f( 19.5f, 3.0f, 1.0f);
 	   glEnd();
 
-	   glBegin(GL_LINES);//Garis di pintu kiri
+	glBegin(GL_LINES);//Garis di pintu kiri
 	glColor3f(0,0,0);
 	glVertex3f( -11.5f,  3.0f, 1.0f);
     glVertex3f( -11.5f,  3.8f, 1.0f);
@@ -204,7 +372,7 @@ void CodinganRumah() {
 	glEnd();
 
 
-		////////////////////////////////////////////////////////////////////    Pintu Mall BELAKANG     ////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////    Pintu Mall BELAKANG     ////////////////////////////////////////////////////
 	glBegin(GL_POLYGON);
 
 	glColor3f(1,1,1);// KIRI
@@ -220,7 +388,6 @@ void CodinganRumah() {
     glVertex3f( 3.5f,  3.8f, -10.0f);
     glVertex3f( 19.5f, 3.8f, -10.0f);
     glVertex3f( 19.5f, 3.0f, -10.0f);
-	
 	glEnd();
 
 	/////////////////////////////////// sekat pintu  //////////////////////
@@ -521,14 +688,14 @@ void FungsiKeyboard(unsigned char key, int x, int y) {
 			is_depth = 1;
 			glDisable (GL_DEPTH_TEST);
 			}
-        CodinganRumah();
+        codinganmall();
 		break;
 
 		//exit
 		case 27:
 		exit(0);
 	}
-	CodinganRumah();
+	codinganmall();
 }
 
 void SudutPandang(int width, int height) {
@@ -560,7 +727,7 @@ int main(int argc, char** argv) {
 	glutInitWindowSize(1000, 1000);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("TR-GRAFKOM");
-	glutDisplayFunc(CodinganRumah);
+	glutDisplayFunc(codinganmall);
 	glutReshapeFunc(SudutPandang);
 	glutKeyboardFunc(FungsiKeyboard);
 	glutMouseFunc(mouse);
